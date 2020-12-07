@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 func calmDown() {
+	// 예외처리.......
 	recover()
 }
 

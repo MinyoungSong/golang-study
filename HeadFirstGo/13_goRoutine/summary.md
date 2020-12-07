@@ -59,4 +59,5 @@ returnVal := <-myChannel // 채널에서 값을 수신
 
 > 동기와 비동기?? 블로킹과 논블로킹??  
 https://deveric.tistory.com/99
+http://homoefficio.github.io/2017/02/19/Blocking-NonBlocking-Synchronous-Asynchronous/
 
