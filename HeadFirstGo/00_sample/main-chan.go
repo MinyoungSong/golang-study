@@ -5,18 +5,19 @@ import (
 	"strconv"
 )
 
+// Student is
 type Student struct {
 	ID      int
 	Name    string
-	Age     int
 	Address string
+	Age     int
 }
 
 func main() {
 
 	var studentIDs = [5]int{1, 2, 3, 4, 5}
 	var resultStudents []Student
-	channel := make(chan Student, len(studentIDs)) // bufferd channel 사용 시 지정한 buffer가 다 채워질때까지 non-block으로 실행됨.
+	channel := make(chan Student) // bufferd channel 사용 시 지정한 buffer가 다 채워질때까지 non-block으로 실행됨.
 
 	for _, id := range studentIDs {
 		go executeTask(id, channel)
@@ -44,8 +45,8 @@ func executeTask(id int, channel chan Student) {
 	student := Student{
 		ID:      id,
 		Name:    "",
-		Age:     0,
 		Address: "",
+		Age:     0,
 	}
 
 	subTaskA(&student)
@@ -56,19 +57,19 @@ func executeTask(id int, channel chan Student) {
 }
 
 func subTaskA(student *Student) {
-	fmt.Println("subTaskA " + strconv.Itoa(student.ID))
+	// fmt.Println("subTaskA " + strconv.Itoa(student.ID))
 	student.Name = "Andy" + strconv.Itoa(student.ID)
 
 }
 
 func subTaskB(student *Student) {
-	fmt.Println("subTaskB " + strconv.Itoa(student.ID))
+	// fmt.Println("subTaskB " + strconv.Itoa(student.ID))
 	student.Age = 2 * student.ID
 
 }
 
 func subTaskC(student *Student) {
-	fmt.Println("subTaskC " + strconv.Itoa(student.ID))
+	// fmt.Println("subTaskC " + strconv.Itoa(student.ID))
 	student.Address = "Seoul" + strconv.Itoa(student.ID)
 
 }
