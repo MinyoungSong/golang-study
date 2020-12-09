@@ -1,7 +1,6 @@
 package prose
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -11,12 +10,12 @@ func TestJoinWithCommas(t *testing.T) {
 	want := "apple, orange and grape"
 
 	get := JoinWithCommas(input)
-	// get := "apple, orange and grape"
-	fmt.Println(get)
+	// fmt.Println(get)
 
 	if get != want {
 		t.Errorf("Input :: %#v", input)
-		t.Errorf("Wanted :: %#v Output :: %#v", want, get)
+		t.Errorf("Wanted :: %#v", want)
+		t.Errorf("Output :: %#v", get)
 	}
 
 }
